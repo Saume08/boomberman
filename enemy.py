@@ -68,12 +68,12 @@ class Enemy:
         else:
             self.direction = self.movement_path[0]
             self.move(map, bombs, explosions, enemy)
-
+#planta la bomba
     def plant_bomb(self, map):
         b = Bomb(self.range, round(self.pos_x / Enemy.TILE_SIZE), round(self.pos_y / Enemy.TILE_SIZE), map, self)
         self.bomb_limit -= 1
         return b
-
+# comprueba si esta muerto
     def check_death(self, exp):
 
         for e in exp:
