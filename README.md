@@ -1,28 +1,27 @@
 # Bomberman 
  
-Bomberman clone written in python using pygame. 
+es un clon de boomberman escrito en python usando pygames :D. 
  
 ![](images/bomberman.gif)
  
-Game allow to play against two types of AI (Dijkstra Algorithm and Depth-first search) 
+el juego permite jugar contra dos tipos de IA  (Dijkstra Algorithm and Depth-first search) 
  
 ![](images/git1.png)
  
-## Controls 
-Arrows - move 
+## Controles 
+Flechas - movimiento
 
-Space - plant bomb 
+Barra espaciadora - plantar bomba 
  
-## Run 
-To run this game you need to install pygame and pygame-menu package
+## Ejecutar 
+para correr este juego es necesario instalar los paquetes pygame y pygame-menu 
 
-Run using menu file:
+Ejecutar juego:
 
 `` 
 python3 menu.py 
 `` 
  
-For now game is not compatible with python2 
-## Sprite 
  
-https://opengameart.org/content/bomb-party-the-complete-set 
+ 
+
