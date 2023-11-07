@@ -83,31 +83,31 @@ def menu_loop():
         theme=menu_theme,
         height=int(WINDOW_SIZE[1] * WINDOW_SCALE),
         width=int(WINDOW_SIZE[0] * WINDOW_SCALE),
-        title='Play menu'
+        title='Menu del Juego'
     )
 
     play_options = pygame_menu.Menu(
         theme=menu_theme,
         height=int(WINDOW_SIZE[1] * WINDOW_SCALE),
         width=int(WINDOW_SIZE[0] * WINDOW_SCALE),
-        title='Options'
+        title='Opciones'
     )
-    play_options.add.selector("Character 1", [("Player", Algorithm.PLAYER), ("DFS", Algorithm.DFS),
-                                              ("DIJKSTRA", Algorithm.DIJKSTRA), ("None", Algorithm.NONE)], onchange=change_player)
-    play_options.add.selector("Character 2", [("DIJKSTRA", Algorithm.DIJKSTRA), ("DFS", Algorithm.DFS),
-                                              ("None", Algorithm.NONE)], onchange=change_enemy1)
-    play_options.add.selector("Character 3", [("DIJKSTRA", Algorithm.DIJKSTRA), ("DFS", Algorithm.DFS),
-                                              ("None", Algorithm.NONE)], onchange=change_enemy2,  default=1)
-    play_options.add.selector("Character 4", [("DIJKSTRA", Algorithm.DIJKSTRA), ("DFS", Algorithm.DFS),
-                                              ("None", Algorithm.NONE)], onchange=change_enemy3)
-    play_options.add.selector("Show path", [("Yes", True), ("No", False)], onchange=change_path)
+    play_options.add.selector("Personaje 1", [("Jugador", Algorithm.PLAYER), ("DFS", Algorithm.DFS),
+                                              ("DIJKSTRA", Algorithm.DIJKSTRA), ("Ninguno", Algorithm.NONE)], onchange=change_player)
+    play_options.add.selector("Personaje 2", [("DIJKSTRA", Algorithm.DIJKSTRA), ("DFS", Algorithm.DFS),
+                                              ("Ninguno", Algorithm.NONE)], onchange=change_enemy1)
+    play_options.add.selector("Personaje 3", [("DIJKSTRA", Algorithm.DIJKSTRA), ("DFS", Algorithm.DFS),
+                                              ("Ninguno", Algorithm.NONE)], onchange=change_enemy2,  default=1)
+    play_options.add.selector("Personaje 4", [("DIJKSTRA", Algorithm.DIJKSTRA), ("DFS", Algorithm.DFS),
+                                              ("Ninguno", Algorithm.NONE)], onchange=change_enemy3)
+    play_options.add.selector("Mostrar recorrido", [("Si", True), ("No", False)], onchange=change_path)
 
-    play_options.add.button('Back', pygame_menu.events.BACK)
-    play_menu.add.button('Start',
+    play_options.add.button('Atras', pygame_menu.events.BACK)
+    play_menu.add.button('Jugar',
                          run_game)
 
-    play_menu.add.button('Options', play_options)
-    play_menu.add.button('Return  to  main  menu', pygame_menu.events.BACK)
+    play_menu.add.button('Opciones', play_options)
+    play_menu.add.button('Volver al menu principal', pygame_menu.events.BACK)
 
     about_menu_theme = pygame_menu.themes.Theme(
         selection_color=COLOR_WHITE,
@@ -126,28 +126,28 @@ def menu_loop():
         height=int(WINDOW_SIZE[1] * WINDOW_SCALE),
         width=int(WINDOW_SIZE[0] * WINDOW_SCALE),
         overflow=False,
-        title='About'
+        title='Informacion'
     )
-    about_menu.add.label("Player controls: ")
-    about_menu.add.label("Movement: Arrows")
-    about_menu.add.label("Plant bomb: Space")
-    about_menu.add.label("Author: Michal Sliwa")
+    about_menu.add.label("Controles del jugador: ")
+    about_menu.add.label("Movimiento:  Flechas")
+    about_menu.add.label("Plantar  la   bomba: Espacio")
+    about_menu.add.label("Autor: Saume08")
     about_menu.add.label("Sprite: ")
     about_menu.add.label("https://opengameart.org/ content/bomb-party-the-complete-set", wordwrap=True)
     about_menu.add.vertical_margin(25)
-    about_menu.add.button('Return  to  main  menu', pygame_menu.events.BACK)
+    about_menu.add.button('Volver  al  menu  principal', pygame_menu.events.BACK)
 
     main_menu = pygame_menu.Menu(
         theme=menu_theme,
         height=int(WINDOW_SIZE[1] * WINDOW_SCALE),
         width=int(WINDOW_SIZE[0] * WINDOW_SCALE),
         onclose=pygame_menu.events.EXIT,
-        title='Main menu'
+        title='Menu  principal'
     )
 
-    main_menu.add.button('Play', play_menu)
-    main_menu.add.button('About', about_menu)
-    main_menu.add.button('Quit', pygame_menu.events.EXIT)
+    main_menu.add.button('Jugar', play_menu)
+    main_menu.add.button('Informacion', about_menu)
+    main_menu.add.button('Salir', pygame_menu.events.EXIT)
 
     running = True
     while running:

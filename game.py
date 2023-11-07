@@ -160,7 +160,7 @@ def draw(s, grid, tile_size, show_path, game_ended, terrain_images, bomb_images,
                                          [sek[0] * tile_size, sek[1] * tile_size, tile_size, tile_size], 1)
 
     if game_ended:
-        tf = font.render("Press ESC to go back to menu", False, (153, 153, 255))
+        tf = font.render("Presiona ESC para regresar al MENU", False, (153, 153, 255))
         s.blit(tf, (10, 10))
 
     pygame.display.update()
