@@ -154,3 +154,5 @@ class Player:
         self.animation.append(right)
         self.animation.append(back)
         self.animation.append(left)
+class Player2(Player):
+    pass
