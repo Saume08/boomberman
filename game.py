@@ -190,7 +190,8 @@ def main(s, tile_size, show_path, terrain_images, bomb_images, explosion_images,
     running = True
     game_ended = False
     while running:
-        dt = clock.tick(15)
+        #controla la velocidad del juegooo estaba en 15 como default
+        dt = clock.tick(14)
         for en in enemy_list:
             en.make_move(grid, bombs, explosions, ene_blocks)
 
