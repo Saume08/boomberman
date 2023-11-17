@@ -205,6 +205,10 @@ def main(s, tile_size, show_path, terrain_images, bomb_images, explosion_images,
     while running:
         #controla la velocidad del juegooo estaba en 15 como default
         dt = clock.tick(14)
+        ####intento de pausa, yo me puedo mover, pero el resto del juego se paraliza, pasa algo raro si spameo la p
+        if keys[pygame.K_p]:
+            dt = clock.tick(0)
+            #######################################
         for en in enemy_list:
             en.make_move(grid, bombs, explosions, ene_blocks)
 
