@@ -4,17 +4,17 @@ import pygame_menu
 import game
 from enums.algorithm import Algorithm
 
-COLOR_BACKGROUND = (153, 153, 255)
+COLOR_BACKGROUND = (153, 153, 155)
 COLOR_BLACK = (0, 0, 0)
 COLOR_WHITE = (255, 255, 255)
 FPS = 60.0
-MENU_BACKGROUND_COLOR = (102, 102, 153)
-MENU_TITLE_COLOR = (51, 51, 255)
+MENU_BACKGROUND_COLOR = (152, 112, 183)
+MENU_TITLE_COLOR = (91, 51, 95)
 WINDOW_SCALE = 0.75
 
 pygame.display.init()
 INFO = pygame.display.Info()
-TILE_SIZE = int(INFO.current_h * 0.035)
+TILE_SIZE = int(INFO.current_h * 0.07)
 WINDOW_SIZE = (13 * TILE_SIZE, 13 * TILE_SIZE)
 
 clock = None
