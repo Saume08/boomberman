@@ -1,0 +1,1 @@
+colision contra los bots, entre ellos se atraviesan y a mi me colisionan no dejando avanzar. 
