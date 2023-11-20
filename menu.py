@@ -14,7 +14,7 @@ WINDOW_SCALE = 0.75
 
 pygame.display.init()
 INFO = pygame.display.Info()
-TILE_SIZE = int(INFO.current_h * 0.07)
+TILE_SIZE = int(INFO.current_h * 0.065)
 WINDOW_SIZE = (13 * TILE_SIZE, 13 * TILE_SIZE)
 
 clock = None
@@ -22,7 +22,7 @@ player_alg = Algorithm.PLAYER
 en1_alg = Algorithm.DIJKSTRA
 en2_alg = Algorithm.DFS
 en3_alg = Algorithm.DIJKSTRA
-show_path = True
+show_path = False
 surface = pygame.display.set_mode(WINDOW_SIZE)
 
 
@@ -100,7 +100,7 @@ def menu_loop():
                                               ("Ninguno", Algorithm.NONE)], onchange=change_enemy2,  default=1)
     play_options.add.selector("Personaje 4", [("DIJKSTRA", Algorithm.DIJKSTRA), ("DFS", Algorithm.DFS),
                                               ("Ninguno", Algorithm.NONE)], onchange=change_enemy3)
-    play_options.add.selector("Mostrar recorrido", [("Si", True), ("No", False)], onchange=change_path)
+    play_options.add.selector("Mostrar recorrido", [("No", False) ,("Si", True) ], onchange=change_path)
 
     play_options.add.button('Atras', pygame_menu.events.BACK)
     play_menu.add.button('Jugar',
