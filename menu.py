@@ -15,7 +15,7 @@ WINDOW_SCALE = 0.75
 pygame.display.init()
 INFO = pygame.display.Info()
 TILE_SIZE = int(INFO.current_h * 0.065)
-WINDOW_SIZE = (13 * TILE_SIZE, 13 * TILE_SIZE)
+WINDOW_SIZE = (1600,1000)
 
 clock = None
 player_alg = Algorithm.PLAYER
