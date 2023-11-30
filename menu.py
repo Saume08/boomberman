@@ -131,7 +131,7 @@ def menu_loop():
     about_menu.add.label("Controles del jugador: ")
     about_menu.add.label("Movimiento:  Flechas")
     about_menu.add.label("Plantar  la   bomba: Espacio")
-    about_menu.add.label("Autor: Saume08")
+    about_menu.add.label("Autor:  Forestf90 Edit by: Saume08")
     about_menu.add.label("Sprite: ")
     about_menu.add.label("https://opengameart.org/ content/bomb-party-the-complete-set", wordwrap=True)
     about_menu.add.vertical_margin(25)

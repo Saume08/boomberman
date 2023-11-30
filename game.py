@@ -191,6 +191,26 @@ def generate_map(grid):
 
     return
 
+def pause(s):
+
+#    my_font = pygame.font.SysFont('Comic Sans MS', 30)
+#    text_pause = my_font.render('PAUSA', True, (0, 0, 0))
+#    text_pos = ((100),(100))
+    
+#    size= 637,637
+#    display_surface = pygame.display.set_mode(size)
+#    display_surface.blit(text_pause,text_pos)
+
+    tf = font.render("Presiona P para regresar al juego", False, (153, 153, 255))
+    s.blit(tf, (10, 10))
+    pygame.display.update()
+
+    while True:
+        for event in pygame.event.get() :
+            if event.type == pygame.KEYDOWN :
+                if event.key == pygame.K_p :
+                    return
+
 
 def main(s, tile_size, show_path, terrain_images, bomb_images, explosion_images, power_ups_images):
 
@@ -205,15 +225,14 @@ def main(s, tile_size, show_path, terrain_images, bomb_images, explosion_images,
     while running:
         #controla la velocidad del juegooo estaba en 15 como default
         dt = clock.tick(14)
-        ####intento de pausa, yo me puedo mover, pero el resto del juego se paraliza, pasa algo raro si spameo la p
-       # if keys[pygame.K_p]:
-        #    dt = clock.tick(0)
             #######################################
         for en in enemy_list:
             en.make_move(grid, bombs, explosions, ene_blocks)
 
         if player.life:
+            
             keys = pygame.key.get_pressed()
+
             temp = player.direction
             movement = False
             if keys[pygame.K_DOWN]:
@@ -259,6 +278,8 @@ def main(s, tile_size, show_path, terrain_images, bomb_images, explosion_images,
                     player.bomb_limit -= 1
                 elif e.key == pygame.K_ESCAPE:
                     running = False
+                elif e.key == pygame.K_p:
+                    pause(s)
 
         update_bombs(grid, dt)
 
