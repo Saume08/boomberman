@@ -190,16 +190,21 @@ def generate_map(grid):
                 grid[i][j] = 2
 
     return
+"""
+def generate_map_in_game(grid):
+    for i in range(1, len(grid) - 1):
+        for j in range(1, len(grid[i]) - 1):
+            if grid[i][j] != 0:
+                continue
+            elif (i < 3 or i > len(grid) - 4) and (j < 3 or j > len(grid[i]) - 4):
+                continue
+            if random.randint(0, 9) < 4:
+                grid[i][j] = 2
+
+    return
+    """
 
 def pause(s):
-
-#    my_font = pygame.font.SysFont('Comic Sans MS', 30)
-#    text_pause = my_font.render('PAUSA', True, (0, 0, 0))
-#    text_pos = ((100),(100))
-    
-#    size= 637,637
-#    display_surface = pygame.display.set_mode(size)
-#    display_surface.blit(text_pause,text_pos)
 
     tf = font.render("Presiona P para regresar al juego", False, (153, 153, 255))
     s.blit(tf, (10, 10))
@@ -287,8 +292,6 @@ def main(s, tile_size, show_path, terrain_images, bomb_images, explosion_images,
     enemy_list.clear()
     ene_blocks.clear()
     power_ups.clear()
-
-
 def update_bombs(grid, dt):
     for b in bombs:
         b.update(dt)

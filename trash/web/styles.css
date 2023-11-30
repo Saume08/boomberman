@@ -1,0 +1,86 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f5e1; /* Verde pastel */
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #edebd5; /* Marrón claro */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-form {
+    background-color: #d4ebc8; /* Verde claro */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.post-form h2 {
+    color: #4d4d4d; /* Gris oscuro */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    color: #4d4d4d; /* Gris oscuro */
+}
+
+input, button {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #a3a375; /* Marrón */
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #6b8e23; /* Verde oliva */
+    color: #fff;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #556b2f; /* Verde oliva oscuro */
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.post {
+    background-color: #d4ebc8; /* Verde claro */
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.post h3 {
+    color: #4d4d4d; /* Gris oscuro */
+    margin-bottom: 5px;
+}
+
+.post p {
+    color: #333;
+    margin: 0;
+}
+
+.post:hover {
+    background-color: #c1d8a7; /* Verde claro al hacer hover */
+}
