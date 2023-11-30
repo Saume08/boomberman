@@ -32,7 +32,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
         self.keys = keys
-        self.bombs = 1  # Cantidad de bombas que puede colocar
+        self.bombs = 12  # Cantidad de bombas que puede colocar
         self.explosion_range = 3  # Rango de explosión
         self.health = player_health  # Vida del jugador
 
