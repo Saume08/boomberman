@@ -3,6 +3,8 @@ import random
 from bomb import Bomb
 from node import Node
 from enums.algorithm import Algorithm
+from enums.power_up_type import PowerUpType
+import math
 
 
 class Enemy:
@@ -26,7 +28,6 @@ class Enemy:
         self.algorithm = alg
 
     def move(self, map, bombs, explosions, enemy):
-
         if self.direction == 0:
             self.pos_y += 1
         elif self.direction == 1:
@@ -50,8 +51,23 @@ class Enemy:
             self.frame = 0
         else:
             self.frame += 1
+    '''   ###### power uup     
+        for pu in power_ups:
+            if pu.pos_x == math.ceil(self.pos_x / Enemy.TILE_SIZE) \
+                    and pu.pos_y == math.ceil(self.pos_y / Enemy.TILE_SIZE):
+                self.consume_power_up(pu, power_ups)
+   #probar si el enemigo consume power up
+    def consume_power_up(self, power_up, power_ups):
+        if power_up.type == PowerUpType.BOMB:
+            self.bomb_limit += 1
+        elif power_up.type == PowerUpType.FIRE:
+            self.range += 1
+
+        power_ups.remove(power_up) 
+        '''
 
     def make_move(self, map, bombs, explosions, enemy):
+
 
         if not self.life:
             return
@@ -69,13 +85,13 @@ class Enemy:
             self.direction = self.movement_path[0]
             self.move(map, bombs, explosions, enemy)
 
+#planta la bomba
     def plant_bomb(self, map):
         b = Bomb(self.range, round(self.pos_x / Enemy.TILE_SIZE), round(self.pos_y / Enemy.TILE_SIZE), map, self)
         self.bomb_limit -= 1
         return b
-
+# comprueba si esta muerto
     def check_death(self, exp):
-
         for e in exp:
             for s in e.sectors:
                 if int(self.pos_x / Enemy.TILE_SIZE) == s[0] and int(self.pos_y / Enemy.TILE_SIZE) == s[1]:
@@ -288,6 +304,7 @@ class Enemy:
                 grid[int(x.pos_x / Enemy.TILE_SIZE)][int(x.pos_y / Enemy.TILE_SIZE)].reach = False
                 grid[int(x.pos_x / Enemy.TILE_SIZE)][int(x.pos_y / Enemy.TILE_SIZE)].value = 1
         return grid
+
 
     def load_animations(self, en, scale):
         front = []

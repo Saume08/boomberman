@@ -3,7 +3,7 @@ import sys
 import random
 
 from enums.power_up_type import PowerUpType
-from player import Player
+from player import Player, Player2
 from explosion import Explosion
 from enemy import Enemy
 from enums.algorithm import Algorithm
@@ -54,6 +54,7 @@ def game_init(surface, path, player_alg, en1_alg, en2_alg, en3_alg, scale):
     power_ups.clear()
 
     player = Player()
+    player2= Player2()
 
     if en1_alg is not Algorithm.NONE:
         en1 = Enemy(11, 11, en1_alg)
@@ -93,7 +94,7 @@ def game_init(surface, path, player_alg, en1_alg, en2_alg, en3_alg, scale):
 
     box_img = pygame.image.load('images/terrain/box.png')
     box_img = pygame.transform.scale(box_img, (scale, scale))
-
+#########
     bomb1_img = pygame.image.load('images/bomb/1.png')
     bomb1_img = pygame.transform.scale(bomb1_img, (scale, scale))
 
@@ -102,7 +103,19 @@ def game_init(surface, path, player_alg, en1_alg, en2_alg, en3_alg, scale):
 
     bomb3_img = pygame.image.load('images/bomb/3.png')
     bomb3_img = pygame.transform.scale(bomb3_img, (scale, scale))
+###
+    bomb4_img = pygame.image.load('images/bomb/4.png')
+    bomb4_img = pygame.transform.scale(bomb4_img, (scale, scale))
 
+    bomb5_img = pygame.image.load('images/bomb/5.png')
+    bomb5_img = pygame.transform.scale(bomb5_img, (scale, scale))
+
+    bomb6_img = pygame.image.load('images/bomb/6.png')
+    bomb6_img = pygame.transform.scale(bomb6_img, (scale, scale))
+
+    bomb7_img = pygame.image.load('images/bomb/7.png')
+    bomb7_img = pygame.transform.scale(bomb7_img, (scale, scale))
+##########
     explosion1_img = pygame.image.load('images/explosion/1.png')
     explosion1_img = pygame.transform.scale(explosion1_img, (scale, scale))
 
@@ -113,7 +126,7 @@ def game_init(surface, path, player_alg, en1_alg, en2_alg, en3_alg, scale):
     explosion3_img = pygame.transform.scale(explosion3_img, (scale, scale))
 
     terrain_images = [grass_img, block_img, box_img, grass_img]
-    bomb_images = [bomb1_img, bomb2_img, bomb3_img]
+    bomb_images = [bomb1_img, bomb2_img, bomb3_img,bomb4_img,bomb5_img,bomb5_img,bomb6_img,bomb7_img]
     explosion_images = [explosion1_img, explosion2_img, explosion3_img]
 
     power_up_bomb_img = pygame.image.load('images/power_up/bomb.png')
@@ -160,7 +173,7 @@ def draw(s, grid, tile_size, show_path, game_ended, terrain_images, bomb_images,
                                          [sek[0] * tile_size, sek[1] * tile_size, tile_size, tile_size], 1)
 
     if game_ended:
-        tf = font.render("Press ESC to go back to menu", False, (153, 153, 255))
+        tf = font.render("Presiona ESC para regresar al MENU", False, (153, 153, 255))
         s.blit(tf, (10, 10))
 
     pygame.display.update()
@@ -178,6 +191,26 @@ def generate_map(grid):
 
     return
 
+def pause(s):
+
+#    my_font = pygame.font.SysFont('Comic Sans MS', 30)
+#    text_pause = my_font.render('PAUSA', True, (0, 0, 0))
+#    text_pos = ((100),(100))
+    
+#    size= 637,637
+#    display_surface = pygame.display.set_mode(size)
+#    display_surface.blit(text_pause,text_pos)
+
+    tf = font.render("Presiona P para regresar al juego", False, (153, 153, 255))
+    s.blit(tf, (10, 10))
+    pygame.display.update()
+
+    while True:
+        for event in pygame.event.get() :
+            if event.type == pygame.KEYDOWN :
+                if event.key == pygame.K_p :
+                    return
+
 
 def main(s, tile_size, show_path, terrain_images, bomb_images, explosion_images, power_ups_images):
 
@@ -190,12 +223,16 @@ def main(s, tile_size, show_path, terrain_images, bomb_images, explosion_images,
     running = True
     game_ended = False
     while running:
-        dt = clock.tick(15)
+        #controla la velocidad del juegooo estaba en 15 como default
+        dt = clock.tick(14)
+            #######################################
         for en in enemy_list:
             en.make_move(grid, bombs, explosions, ene_blocks)
 
         if player.life:
+            
             keys = pygame.key.get_pressed()
+
             temp = player.direction
             movement = False
             if keys[pygame.K_DOWN]:
@@ -241,6 +278,8 @@ def main(s, tile_size, show_path, terrain_images, bomb_images, explosion_images,
                     player.bomb_limit -= 1
                 elif e.key == pygame.K_ESCAPE:
                     running = False
+                elif e.key == pygame.K_p:
+                    pause(s)
 
         update_bombs(grid, dt)
 
