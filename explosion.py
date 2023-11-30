@@ -10,6 +10,7 @@ class Explosion:
         self.sourceX = x
         self.sourceY = y
         self.range = r
+        #modifica la duracion de la explocion (ver ultimo metodo "update" aca mismo)
         self.time = 300
         self.frame = 0
         self.sectors = []
@@ -50,7 +51,7 @@ class Explosion:
 
         self.time = self.time - dt
 
-        if self.time < 100:
+        if self.time < 200:
             self.frame = 2
-        elif self.time < 200:
+        elif self.time < 300:
             self.frame = 1
